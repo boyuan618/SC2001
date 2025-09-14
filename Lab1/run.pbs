@@ -1,0 +1,23 @@
+#!/bin/bash
+#PBS -N sc2001
+#PBS -l select=1:ncpus=7:mpiprocs=7:mem=128gb
+#PBS -l walltime=00:10:00
+#PBS -o merge.txt
+#PBS -q normal
+#PBS -j oe
+
+export PATH=$HOME/scratch/openmpi-gcc14/bin:$PATH
+export LD_LIBRARY_PATH=$HOME/scratch/openmpi-gcc14/lib:$LD_LIBRARY_PATH
+
+cd /scratch/users/ntu/gubo0002/SC2001
+
+
+echo "Run 1\n"
+mpirun -np 7 parti
+
+
+echo "Run 2\n"
+mpirun -np 7 parti
+
+echo "Run 3\n"
+mpirun -np 7 parti
